@@ -5,7 +5,7 @@ LABEL AUTHOR="keviswang@outlook.com" \
 
 ENV CUSTOM_LIST_MERGE_TYPE=append \
     REPO_URL=https://github.com/keviswang/jd_scripts.git \
-    REPO_BRANCH=master
+    REPO_BRANCH=main
 
 RUN set -ex \
     && apk update \
