@@ -19,3 +19,8 @@ pnpm-debug.log*
 *.njsproj
 *.sln
 *.sw?
+
+box.dat
+CookieSet.json
+jdCookie.js
+logs

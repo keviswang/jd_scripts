@@ -8,7 +8,7 @@ npm install --prefix /scripts
 
 ######################################获取docker构建文件里面的自定义信息方法-start#####################################################
 function getDockerImageLabel() {
-    repo=akyakya/jd_scripts
+    repo=keviswang/jd_scripts
     imageTag=latest
     token=$(curl -s "https://auth.docker.io/token?service=registry.docker.io&scope=repository:${repo}:pull" | jq -r '.token')
     digest=$(curl -s -H "Accept: application/vnd.docker.distribution.manifest.v2+json" -H "Authorization: Bearer $token" "https://registry-1.docker.io/v2/${repo}/manifests/${imageTag}" | jq .config.digest -r)
@@ -33,7 +33,7 @@ if type jq >/dev/null 2>&1; then
 else
     # 第一版通知逻辑无法包含在上面判断里面，镜像构建好直接开启通知
     echo "当前容版版本过旧，发送镜像更新通知"
-    export NOTIFY_CONTENT="更新内容较多，重新阅读仓库Readme(https://github.com/lxk0301/jd_scripts/tree/master/docker)，更新镜像并更新配置后使用。"
+    export NOTIFY_CONTENT="更新镜像并更新配置后使用。"
     cd /scripts/docker
     node notify_docker_user.js
 fi
