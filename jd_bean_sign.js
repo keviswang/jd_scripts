@@ -64,6 +64,14 @@ if ($.isNode()) {
 async function execSign() {
   console.log(`\n开始执行 ${$.name} 签到，请稍等...\n`);
   try {
+    // if (notify.SCKEY || notify.BARK_PUSH || notify.DD_BOT_TOKEN || (notify.TG_BOT_TOKEN && notify.TG_USER_ID) || notify.IGOT_PUSH_KEY || notify.QQ_SKEY) {
+    //   await exec(`${process.execPath} ${JD_DailyBonusPath} >> ${resultPath}`);
+    //   const notifyContent = await fs.readFileSync(resultPath, "utf8");
+    //   console.log(`👇👇👇👇👇👇👇👇👇👇👇LOG记录👇👇👇👇👇👇👇👇👇👇👇\n${notifyContent}\n👆👆👆👆👆👆👆👆👆LOG记录👆👆👆👆👆👆👆👆👆👆👆`);
+    // } else {
+    //   console.log('没有提供通知推送，则打印脚本执行日志')
+    //   await exec(`${process.execPath} ${JD_DailyBonusPath}`, { stdio: "inherit" });
+    // }
     await exec(`${process.execPath} ${JD_DailyBonusPath} >> ${resultPath}`);
     const notifyContent = await fs.readFileSync(resultPath, "utf8");
     console.error(`👇👇👇👇👇👇👇👇👇👇👇签到详情👇👇👇👇👇👇👇👇👇👇👇\n${notifyContent}\n👆👆👆👆👆👆👆👆👆签到详情👆👆👆👆👆👆👆👆👆👆👆`);
